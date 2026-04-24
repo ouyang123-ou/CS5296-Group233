@@ -1,0 +1,32 @@
+spring:
+  shardingsphere:
+    datasource:
+      names: ds0, ds1
+      ds0:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        url: jdbc:mysql://127.0.0.1:3307/shard_db?useSSL=false&serverTimezone=UTC
+        username: dbadmin
+        password: Myproject5296
+      ds1:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        url: jdbc:mysql://127.0.0.1:3308/shard_db?useSSL=false&serverTimezone=UTC
+        username: dbadmin
+        password: Myproject5296
+    rules:
+      sharding:
+        tables:
+          t_order:
+            actual-data-nodes: ds$->{0..1}.t_order
+            database-strategy:
+              standard:
+                sharding-column: order_id
+                sharding-algorithm-name: database-inline
+        sharding-algorithms:
+          database-inline:
+            type: INLINE
+            props:
+              algorithm-expression: ds$->{order_id % 2}
+    props:
+      sql-show: true   # 开发时打印 SQL 路由信息，方便调试
