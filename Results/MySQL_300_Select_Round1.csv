@@ -1,0 +1,3 @@
+Label,# Samples,Average,Min,Max,Std. Dev.,Error %,Throughput,Received KB/sec,Sent KB/sec,Avg. Bytes
+点查询 - GET /order/{id},151884,580,9,2665,228.50,0.000%,505.32662,142.24,66.55,288.2
+TOTAL,151884,580,9,2665,228.50,0.000%,505.32662,142.24,66.55,288.2

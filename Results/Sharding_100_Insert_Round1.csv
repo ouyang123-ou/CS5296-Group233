@@ -1,0 +1,3 @@
+Label,# Samples,Average,Min,Max,Std. Dev.,Error %,Throughput,Received KB/sec,Sent KB/sec,Avg. Bytes
+插入订单 - POST /order,260145,99,20,3592,38.78,0.000%,866.71087,137.72,218.56,162.7
+TOTAL,260145,99,20,3592,38.78,0.000%,866.71087,137.72,218.56,162.7
